@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from  "./components/Navbar";
 import Home from "./pages/Home";
-import CreateBlog from "./pages/createBlog";
+import CreateBlog from "./pages/CreateBlog";
 import EditBlog from "./pages/EditBlog";
 import "./App.css";
 import BlogDetails from "./pages/BlogDetails";
