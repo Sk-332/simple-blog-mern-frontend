@@ -14,7 +14,7 @@ export default function BlogDetails() {
       setLoading(true);
       setError("");
 
-      const res = await axios.get(`${process.env.REACT_APP_API_URL}/${id}`);
+      const res = await axios.get(`${process.env.VITE_API_URL}/${id}`);
       setBlog(res.data);
     } catch (err) {
       console.log(err);

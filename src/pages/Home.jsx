@@ -7,7 +7,7 @@ export default function Home(){
 
     const fetchBlogs=async()=>{
         try {
-            const res = await axios.get(`${process.env.REACT_APP_API_URL}`);
+            const res = await axios.get(`${process.env.VITE_API_URL}`);
             setBlogs(res.data);
         } catch (error) {
             console.log(error);

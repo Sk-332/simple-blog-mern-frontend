@@ -11,7 +11,7 @@ export default function EditBlog() {
 
   const fetchSingleBlog = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_URL}/${id}`);
+      const res = await axios.get(`${process.env.VITE_API_URL}/${id}`);
       setTitle(res.data.title);
       setContent(res.data.content);
     } catch (error) {
@@ -28,7 +28,7 @@ export default function EditBlog() {
     e.preventDefault();
 
     try {
-      await axios.put(`${process.env.REACT_APP_API_URL}/${id}`, { title, content });
+      await axios.put(`${process.env.VITE_API_URL}/${id}`, { title, content });
       navigate("/");
     } catch (error) {
       console.log(error);

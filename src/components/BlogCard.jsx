@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function BlogCard({ blog, fetchBlogs }) {
   const handleDelete = async () => {
     try {
-      await axios.delete(`${process.env.REACT_APP_API_URL}/${blog._id}`);
+      await axios.delete(`${process.env.VITE_API_URL}/${blog._id}`);
       fetchBlogs();
     } catch (error) {
       console.log(error);
@@ -23,20 +23,20 @@ export default function BlogCard({ blog, fetchBlogs }) {
 
   return (
     <div style={styles.card}>
-      {/* ✅ Header Row */}
+      
       <div style={styles.header}>
         <h3 style={styles.title}>{blog.title}</h3>
         <span style={styles.date}>{formattedDate}</span>
       </div>
 
-      {/* ✅ Content Preview */}
+      
       <p style={styles.content}>
         {blog.content.length > 140
           ? blog.content.slice(0, 140) + "..."
           : blog.content}
       </p>
 
-      {/* ✅ Buttons */}
+      
       <div style={styles.btns}>
         <Link style={styles.readBtn} to={`/blog/${blog._id}`}>
           Read More

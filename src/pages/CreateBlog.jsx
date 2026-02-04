@@ -14,7 +14,7 @@ export default function CreateBlog(){
             return alert("Please fill all fields");
         }
         try {
-            await axios.post(`${process.env.REACT_APP_API_URL}`, { title, content });
+            await axios.post(`${process.env.VITE_API_URL}`, { title, content });
             navigate("/");
         } catch (error) {
             console.log(error);
