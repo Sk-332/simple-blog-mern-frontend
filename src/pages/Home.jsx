@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../utils/api";
 import BlogCard from "../components/BlogCard";
 
 export default function Home(){
@@ -7,7 +7,7 @@ export default function Home(){
 
     const fetchBlogs=async()=>{
         try {
-            const res = await axios.get(`${process.env.VITE_API_URL}`);
+            const res = await api.get("/");
             setBlogs(res.data);
         } catch (error) {
             console.log(error);

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../utils/api";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function EditBlog() {
@@ -11,7 +11,7 @@ export default function EditBlog() {
 
   const fetchSingleBlog = async () => {
     try {
-      const res = await axios.get(`${process.env.VITE_API_URL}/${id}`);
+      const res = await api.get(`/${id}`);
       setTitle(res.data.title);
       setContent(res.data.content);
     } catch (error) {
@@ -28,7 +28,7 @@ export default function EditBlog() {
     e.preventDefault();
 
     try {
-      await axios.put(`${process.env.VITE_API_URL}/${id}`, { title, content });
+      await api.put(`/${id}`, { title, content });
       navigate("/");
     } catch (error) {
       console.log(error);

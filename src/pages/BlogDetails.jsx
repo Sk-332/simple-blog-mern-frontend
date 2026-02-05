@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../utils/api";
 import { Link, useParams } from "react-router-dom";
 
 export default function BlogDetails() {
@@ -14,7 +14,7 @@ export default function BlogDetails() {
       setLoading(true);
       setError("");
 
-      const res = await axios.get(`${process.env.VITE_API_URL}/${id}`);
+     const res = await api.get(`/${id}`);
       setBlog(res.data);
     } catch (err) {
       console.log(err);

@@ -1,6 +1,7 @@
-import axios from "axios";
+import api from "../utils/api";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../utils/api";
 
 export default function CreateBlog(){
     const [title, setTitle] = useState("");
@@ -14,7 +15,7 @@ export default function CreateBlog(){
             return alert("Please fill all fields");
         }
         try {
-            await axios.post(`${process.env.VITE_API_URL}`, { title, content });
+            await api.post("/", { title, content });
             navigate("/");
         } catch (error) {
             console.log(error);

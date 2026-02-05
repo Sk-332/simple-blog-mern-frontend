@@ -1,10 +1,10 @@
-import axios from "axios";
+import api from "../utils/api";
 import { Link } from "react-router-dom";
 
 export default function BlogCard({ blog, fetchBlogs }) {
   const handleDelete = async () => {
     try {
-      await axios.delete(`${process.env.VITE_API_URL}/${blog._id}`);
+      await api.delete(`/${blog._id}`);
       fetchBlogs();
     } catch (error) {
       console.log(error);
